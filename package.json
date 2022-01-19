@@ -10,6 +10,8 @@
     "@typescript-eslint/parser": "^5.10.0",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jest": "^25.7.0",
     "eslint-plugin-node": "^11.1.0",
     "husky": ">=6",
@@ -30,7 +32,7 @@
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "*.{ts}": "eslint --cache --fix",
-    "*.{ts, md}": "prettier --write"
+    "*.{ts}": "yarn eslint --cache --fix",
+    "*.{ts, md}": "yarn prettier --write"
   }
 }
