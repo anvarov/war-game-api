@@ -37,6 +37,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/eslint", "npm:8.2.2"],
             ["@types/express", "npm:4.17.13"],
+            ["@types/helmet", "npm:4.0.0"],
+            ["@types/node", "npm:17.0.10"],
             ["@types/prettier", "npm:2.4.3"],
             ["@typescript-eslint/eslint-plugin", "virtual:556240b4bb9a0f7d270161b300cb82d33b8162f24bfecdd7efa917aed8750b7b301e6909566641c7b389e5b71c3fd47c5a7169a63cd5f9c3eac6566260c6706c#npm:5.10.0"],
             ["@typescript-eslint/parser", "virtual:556240b4bb9a0f7d270161b300cb82d33b8162f24bfecdd7efa917aed8750b7b301e6909566641c7b389e5b71c3fd47c5a7169a63cd5f9c3eac6566260c6706c#npm:5.10.0"],
@@ -1305,6 +1307,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/graceful-fs", "npm:4.1.5"],
             ["@types/node", "npm:17.0.10"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/helmet", [
+        ["npm:4.0.0", {
+          "packageLocation": "./.yarn/cache/@types-helmet-npm-4.0.0-48d8baa6ce-ded60d8d99.zip/node_modules/@types/helmet/",
+          "packageDependencies": [
+            ["@types/helmet", "npm:4.0.0"],
+            ["helmet", "npm:5.0.1"]
           ],
           "linkType": "HARD",
         }]
@@ -7112,6 +7124,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["war-game-rest", "workspace:."],
             ["@types/eslint", "npm:8.2.2"],
             ["@types/express", "npm:4.17.13"],
+            ["@types/helmet", "npm:4.0.0"],
+            ["@types/node", "npm:17.0.10"],
             ["@types/prettier", "npm:2.4.3"],
             ["@typescript-eslint/eslint-plugin", "virtual:556240b4bb9a0f7d270161b300cb82d33b8162f24bfecdd7efa917aed8750b7b301e6909566641c7b389e5b71c3fd47c5a7169a63cd5f9c3eac6566260c6706c#npm:5.10.0"],
             ["@typescript-eslint/parser", "virtual:556240b4bb9a0f7d270161b300cb82d33b8162f24bfecdd7efa917aed8750b7b301e6909566641c7b389e5b71c3fd47c5a7169a63cd5f9c3eac6566260c6706c#npm:5.10.0"],

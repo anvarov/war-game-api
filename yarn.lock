@@ -835,6 +835,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/helmet@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@types/helmet@npm:4.0.0"
+  dependencies:
+    helmet: "*"
+  checksum: ded60d8d9960edbae4d10603511dca9b9c50a9937f49e0d2b14bc096302e85a038acd443889a132dab60bc950bfd0e47337bdca485d75bbb7b6224f74fc50ab7
+  languageName: node
+  linkType: hard
+
 "@types/istanbul-lib-coverage@npm:*, @types/istanbul-lib-coverage@npm:^2.0.0, @types/istanbul-lib-coverage@npm:^2.0.1":
   version: 2.0.4
   resolution: "@types/istanbul-lib-coverage@npm:2.0.4"
@@ -881,7 +890,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:^17.0.10":
   version: 17.0.10
   resolution: "@types/node@npm:17.0.10"
   checksum: 979e83d642a2b4f18fa1a4233f884822c05abc7acd0836024aa964187f8446432b21f7913e72fe2b3927c4a811c27a0b6cd60ac7c4ac6a6762cfbab70782aa6a
@@ -2894,7 +2903,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"helmet@npm:^5.0.1":
+"helmet@npm:*, helmet@npm:^5.0.1":
   version: 5.0.1
   resolution: "helmet@npm:5.0.1"
   checksum: 6e693ce32a413e967a3f7dc4f12ebcb494b8819b7d9397b2b3c72ac82f75a2ce415b5c6159f7d9717dc646bbf2f3447f63770fc8398efb555b12da1ac8ef53e7
@@ -5722,6 +5731,8 @@ __metadata:
   dependencies:
     "@types/eslint": ^8
     "@types/express": ^4
+    "@types/helmet": ^4.0.0
+    "@types/node": ^17.0.10
     "@types/prettier": ^2
     "@typescript-eslint/eslint-plugin": ^5.10.0
     "@typescript-eslint/parser": ^5.10.0

@@ -3,7 +3,10 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint", "jest", "import"],
   rules: {
-    "import/no-unresolved": "error",
+    "node/no-unsupported-features/es-syntax": "off",
+  },
+  parserOptions: {
+    ecmaVersion: "2020",
   },
   extends: [
     "eslint:recommended",
