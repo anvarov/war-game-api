@@ -1,7 +1,7 @@
 {
   "name": "war-game-rest",
   "packageManager": "yarn@3.1.1",
-	"private": true,
+  "private": true,
   "devDependencies": {
     "@types/eslint": "^8",
     "@types/express": "^4",
