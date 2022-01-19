@@ -46,7 +46,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-node", "virtual:556240b4bb9a0f7d270161b300cb82d33b8162f24bfecdd7efa917aed8750b7b301e6909566641c7b389e5b71c3fd47c5a7169a63cd5f9c3eac6566260c6706c#npm:11.1.0"],
             ["express", "npm:4.17.2"],
             ["helmet", "npm:5.0.1"],
+            ["husky", "npm:7.0.4"],
             ["jest", "virtual:556240b4bb9a0f7d270161b300cb82d33b8162f24bfecdd7efa917aed8750b7b301e6909566641c7b389e5b71c3fd47c5a7169a63cd5f9c3eac6566260c6706c#npm:27.4.7"],
+            ["pinst", "npm:2.1.6"],
             ["prettier", "npm:2.5.1"],
             ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"]
           ],
@@ -3311,6 +3313,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["fromentries", [
+        ["npm:1.3.2", {
+          "packageLocation": "./.yarn/cache/fromentries-npm-1.3.2-f5392090b8-33729c529c.zip/node_modules/fromentries/",
+          "packageDependencies": [
+            ["fromentries", "npm:1.3.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["fs-minipass", [
         ["npm:2.1.0", {
           "packageLocation": "./.yarn/cache/fs-minipass-npm-2.1.0-501ef87306-1b8d128dae.zip/node_modules/fs-minipass/",
@@ -3610,6 +3621,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["humanize-ms", "npm:1.2.1"],
             ["ms", "npm:2.1.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["husky", [
+        ["npm:7.0.4", {
+          "packageLocation": "./.yarn/cache/husky-npm-7.0.4-917ba035c6-c6ec4af63d.zip/node_modules/husky/",
+          "packageDependencies": [
+            ["husky", "npm:7.0.4"]
           ],
           "linkType": "HARD",
         }]
@@ -5195,6 +5215,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["pinst", [
+        ["npm:2.1.6", {
+          "packageLocation": "./.yarn/cache/pinst-npm-2.1.6-750cbdedeb-3644c352a7.zip/node_modules/pinst/",
+          "packageDependencies": [
+            ["pinst", "npm:2.1.6"],
+            ["fromentries", "npm:1.3.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["pirates", [
         ["npm:4.0.4", {
           "packageLocation": "./.yarn/cache/pirates-npm-4.0.4-fe2b7e8b42-6b7187d526.zip/node_modules/pirates/",
@@ -6244,7 +6274,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-node", "virtual:556240b4bb9a0f7d270161b300cb82d33b8162f24bfecdd7efa917aed8750b7b301e6909566641c7b389e5b71c3fd47c5a7169a63cd5f9c3eac6566260c6706c#npm:11.1.0"],
             ["express", "npm:4.17.2"],
             ["helmet", "npm:5.0.1"],
+            ["husky", "npm:7.0.4"],
             ["jest", "virtual:556240b4bb9a0f7d270161b300cb82d33b8162f24bfecdd7efa917aed8750b7b301e6909566641c7b389e5b71c3fd47c5a7169a63cd5f9c3eac6566260c6706c#npm:27.4.7"],
+            ["pinst", "npm:2.1.6"],
             ["prettier", "npm:2.5.1"],
             ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"]
           ],
