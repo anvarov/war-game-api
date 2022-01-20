@@ -32,7 +32,7 @@
     "serve": "yarn ./app.js",
     "format": "yarn prettier --write .",
     "postinstall": "husky install",
-		"compile": "yarn tsc -p tsconfig.json"
+    "compile": "yarn tsc -p tsconfig.json"
   },
   "lint-staged": {
     "*.{ts}": "yarn eslint --cache --fix",
