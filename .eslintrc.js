@@ -33,5 +33,8 @@ module.exports = {
         project: "./tsconfig.json",
       },
     },
+    node: {
+      tryExtensions: [".ts", ".json", ".js"],
+    },
   },
 };
