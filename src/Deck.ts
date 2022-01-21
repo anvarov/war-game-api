@@ -1,18 +1,54 @@
-const generateDeck = (): Record<string, number> => {
-	const suites = ['D', 'C', 'H', 'S']
-	const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-	const deck: Record<string, number> = {}
-	for (let i = 0; i < ranks.length; i++) {
-		for (let j = 0; j < suites.length; j++) {
-			deck[ranks[i] + suites[j]] = i
-		}
-	}
-	return deck
+import { IDeck } from "./deckCards";
+
+export class Deck {
+  private _cards: Array<IDeck>;
+  public get cards(): Array<IDeck> {
+    return this._cards;
+  }
+  public set cards(value: Array<IDeck>) {
+    this._cards = value;
+  }
+
+  public constructor(cards?: Array<IDeck>) {
+    // if (cards instanceof Array){
+    // 	console.log(cards, 'cards inside constructor if')
+    // 	this.cards = cards
+    // }
+    this.cards = cards ? cards : [];
+  }
+  shuffleDeck(cards: Array<IDeck>): Array<IDeck> {
+    const deck = cards;
+    let currentIndex = deck.length,
+      randomIndex;
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [deck[currentIndex], deck[randomIndex]] = [
+        deck[randomIndex],
+        deck[currentIndex],
+      ];
+    }
+
+    return deck;
+  }
+  removeOneFromDeck(): Array<IDeck> {
+    const copyOfCards = [...this.cards];
+    const removedCard = copyOfCards.pop();
+    this.cards = copyOfCards;
+    return [removedCard];
+  }
+
+  removeThreeFromDeck(): Array<IDeck> {
+    const copyOfCards = [...this.cards];
+    const playedCards = [];
+    playedCards.push(copyOfCards.pop());
+    playedCards.push(copyOfCards.pop());
+    playedCards.push(copyOfCards.pop());
+    this.cards = copyOfCards;
+    return playedCards;
+  }
+  addToDeck(cardsToAdd: Array<IDeck>): void {
+    const copyOfCards = [...this.cards];
+    this.cards = [...copyOfCards, ...cardsToAdd];
+  }
 }
-
-const deckArray = Array.from(Object.keys(generateDeck()))
-const cardValues = generateDeck()
-const deckFirstHalf = deckArray.splice(0, 26)
-const deckSecondHalf = deckArray
-
-export {cardValues, deckFirstHalf, deckSecondHalf}
