@@ -4,16 +4,11 @@ import { Board } from "./Board";
 import { Deck } from "./Deck";
 import { firstHalfDeck, secondHalfDeck } from "./deckCards";
 
-// console.log(firstHalfDeck, 'firstHalfDeck')
-// console.log(secondHalfDeck, 'secondHalfDeck')
-
 const playerOne = new Player("Akmal", new Deck(), new Deck(firstHalfDeck));
 const playerTwo = new Player("Anvarov", new Deck(), new Deck(secondHalfDeck));
 const board = new Board();
 const game = new Game(playerOne, playerTwo, board);
-// while (!game.winner) {
-//   game.play();
-// }
+
 while (!game.winner) {
   game.play();
 }
@@ -42,3 +37,4 @@ console.log(game.winner.faceUpDeck.cards, "faceupcards");
 console.log(game.board.cardsOnBoard, "on board cards");
 console.log(game.playerOne.faceDownDeck.cards, "player one face down cards");
 console.log(game.playerOne.faceUpDeck.cards, "player one face up cards");
+console.log(game.history, "game history");

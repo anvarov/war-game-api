@@ -1,11 +1,23 @@
 import { Board } from "./Board";
+import { IDeck } from "./deckCards";
 import { Player } from "./Player";
 
+export interface IHistory {
+  cards: IDeck[];
+  player: Player;
+}
 export class Game {
   private _winner: Player | undefined;
   private _board: Board;
   private _playerOne: Player;
   private _playerTwo: Player;
+  private _history: IHistory[];
+  public get history(): IHistory[] {
+    return this._history;
+  }
+  public set history(value: IHistory[]) {
+    this._history = value;
+  }
   public get playerTwo(): Player {
     return this._playerTwo;
   }
@@ -44,45 +56,26 @@ export class Game {
     this.board = board;
     this.gameStatus = "nowar";
     this.winner = undefined;
+    this.history = [];
   }
   nextMove(player: Player, numOfCards: number): void {
-    const drawedCards = player.drawCards(numOfCards);
+    const drawedCards = player.drawCards(numOfCards, this.history);
     if (drawedCards.length === 0) {
       this.winner =
         player.name === this.playerOne.name ? this.playerTwo : this.playerOne;
       return;
     }
     this.board.addToBoard(drawedCards);
-    // if (
-    //   player.faceDownDeck.cards.length < moves &&
-    //   player.faceUpDeck.cards.length > moves
-    // ) {
-    //   const faceUpDeckCards = player.faceUpDeck.shuffleDeck([
-    //     ...player.faceUpDeck.cards,
-    //   ]);
-    //   player.faceUpDeck.cards = [];
-    //   player.faceDownDeck.cards = faceUpDeckCards;
-    // } else if (
-    //   player.faceDownDeck.cards.length < moves &&
-    //   player.faceUpDeck.cards.length < moves
-    // ) {
-    //   this.winner =
-    //     player.name === this.playerOne.name ? this.playerTwo : this.playerOne;
-    //   return;
-    // }
-    // const playedCard =
-    //   moves === 1
-    //     ? player.faceDownDeck.removeOneFromDeck()
-    //     : player.faceDownDeck.removeThreeFromDeck();
-    // this.board.addToBoard(playedCard);
   }
   play(): void {
     switch (this.gameStatus) {
       case "nowar":
         this.nextMove(this.playerOne, 1);
         if (this.winner) return;
+
         this.nextMove(this.playerTwo, 1);
         if (this.winner) return;
+
         this.compareCards();
         break;
       case "war":
