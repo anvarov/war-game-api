@@ -30,11 +30,16 @@ if (game.winner === playerOne) {
   game.board.cardsOnBoard = [];
 }
 
-console.log(game.winner.name);
-console.log(game.winner.faceDownDeck.cards, "facedowncards");
-console.log(game.winner.faceDownDeck.cards.length, "lenth");
-console.log(game.winner.faceUpDeck.cards, "faceupcards");
-console.log(game.board.cardsOnBoard, "on board cards");
-console.log(game.playerOne.faceDownDeck.cards, "player one face down cards");
-console.log(game.playerOne.faceUpDeck.cards, "player one face up cards");
-console.log(game.history, "game history");
+// console.log(game.winner.name);
+// console.log(game.winner.faceDownDeck.cards, "facedowncards");
+// console.log(game.winner.faceDownDeck.cards.length, "lenth");
+// console.log(game.winner.faceUpDeck.cards, "faceupcards");
+// console.log(game.board.cardsOnBoard, "on board cards");
+// console.log(game.playerOne.faceDownDeck.cards, "player one face down cards");
+// console.log(game.playerOne.faceUpDeck.cards, "player one face up cards");
+// for (let i = 0; i< game.history.length; i++){
+// 	console.log(game.history[i].cards, "cards");
+// 	console.log(game.history[i].player.name, "player name")
+// 	console.log('/n')
+
+// }

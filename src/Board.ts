@@ -17,7 +17,4 @@ export class Board {
     this.cardsOnBoard = [...copyOfBoard, ...cards];
     return [...copyOfBoard, ...cards];
   }
-  // clearBoard(): void {
-  //   this.cardsOnBoard = [];
-  // }
 }

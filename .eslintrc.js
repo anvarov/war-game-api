@@ -6,20 +6,20 @@ module.exports = {
     "node/no-unsupported-features/es-syntax": "off",
   },
   parserOptions: {
-    ecmaVersion: "2020",
+    ecmaVersion: "12",
   },
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:jest/recommended",
+    "plugin:jest/all",
     "plugin:import/recommended",
     "plugin:node/recommended",
     "plugin:import/typescript",
     "prettier",
   ],
-  env: {
-    "jest/globals": true,
-  },
+  // env: {
+  //   "jest/globals": true,
+  // },
   settings: {
     jest: {
       version: 27,

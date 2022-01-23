@@ -1,7 +1,5 @@
-interface IDeck {
-  card: string;
-  value: number;
-}
+import { Deck, IDeck } from "./Deck";
+
 const DECK_CARDS: Array<IDeck> = [
   { card: "2H", value: 0 },
   { card: "2C", value: 0 },
@@ -56,22 +54,8 @@ const DECK_CARDS: Array<IDeck> = [
   { card: "AS", value: 12 },
   { card: "AD", value: 12 },
 ];
-const shuffleDeck = (cards: Array<IDeck>): Array<IDeck> => {
-  const deck = cards;
-  let currentIndex = deck.length,
-    randomIndex;
-  while (currentIndex != 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-    [deck[currentIndex], deck[randomIndex]] = [
-      deck[randomIndex],
-      deck[currentIndex],
-    ];
-  }
 
-  return deck;
-};
-const shuffledDeck = shuffleDeck(DECK_CARDS);
+const shuffledDeck = Deck.shuffleDeck(DECK_CARDS);
 const firstHalfDeck = shuffledDeck.splice(0, 26);
 const secondHalfDeck = shuffledDeck;
-export { firstHalfDeck, secondHalfDeck, IDeck, shuffleDeck };
+export { firstHalfDeck, secondHalfDeck, IDeck };
