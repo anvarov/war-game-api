@@ -45,45 +45,60 @@ export class Game {
     this.gameStatus = "nowar";
     this.winner = undefined;
   }
-  makeMove(player: Player, moves: number) {
-    if (
-      player.faceDownDeck.cards.length < moves &&
-      player.faceUpDeck.cards.length > moves
-    ) {
-      const faceUpDeckCards = player.faceUpDeck.shuffleDeck([
-        ...player.faceUpDeck.cards,
-      ]);
-      player.faceUpDeck.cards = [];
-      player.faceDownDeck.cards = faceUpDeckCards;
-    } else if (
-      player.faceDownDeck.cards.length < moves &&
-      player.faceUpDeck.cards.length < moves
-    ) {
+  nextMove(player: Player, numOfCards: number): void {
+    const drawedCards = player.drawCards(numOfCards);
+    if (drawedCards.length === 0) {
       this.winner =
         player.name === this.playerOne.name ? this.playerTwo : this.playerOne;
       return;
     }
-    const playedCard =
-      moves === 1
-        ? player.faceDownDeck.removeOneFromDeck()
-        : player.faceDownDeck.removeThreeFromDeck();
-    this.board.addToBoard(playedCard);
+    this.board.addToBoard(drawedCards);
+    // if (
+    //   player.faceDownDeck.cards.length < moves &&
+    //   player.faceUpDeck.cards.length > moves
+    // ) {
+    //   const faceUpDeckCards = player.faceUpDeck.shuffleDeck([
+    //     ...player.faceUpDeck.cards,
+    //   ]);
+    //   player.faceUpDeck.cards = [];
+    //   player.faceDownDeck.cards = faceUpDeckCards;
+    // } else if (
+    //   player.faceDownDeck.cards.length < moves &&
+    //   player.faceUpDeck.cards.length < moves
+    // ) {
+    //   this.winner =
+    //     player.name === this.playerOne.name ? this.playerTwo : this.playerOne;
+    //   return;
+    // }
+    // const playedCard =
+    //   moves === 1
+    //     ? player.faceDownDeck.removeOneFromDeck()
+    //     : player.faceDownDeck.removeThreeFromDeck();
+    // this.board.addToBoard(playedCard);
   }
   play(): void {
     switch (this.gameStatus) {
       case "nowar":
-        this.makeMove(this.playerOne, 1);
-        this.makeMove(this.playerTwo, 1);
-        if (this.winner) break;
-        this.findWinner();
+        this.nextMove(this.playerOne, 1);
+        if (this.winner) return;
+        this.nextMove(this.playerTwo, 1);
+        if (this.winner) return;
+        this.compareCards();
         break;
       case "war":
-        this.makeMove(this.playerOne, 3);
-        this.makeMove(this.playerTwo, 3);
-        this.makeMove(this.playerOne, 1);
-        this.makeMove(this.playerTwo, 1);
-        if (this.winner) break;
-        this.findWinner();
+        this.nextMove(this.playerOne, 3);
+        if (this.winner) return;
+
+        this.nextMove(this.playerTwo, 3);
+        if (this.winner) return;
+
+        this.nextMove(this.playerOne, 1);
+        if (this.winner) return;
+
+        this.nextMove(this.playerTwo, 1);
+        if (this.winner) return;
+
+        this.compareCards();
         break;
       default:
         throw new Error(
@@ -91,25 +106,26 @@ export class Game {
         );
     }
   }
-  findWinner(): Player | void {
+  compareCards(): void {
     const { cardsOnBoard } = this.board;
-    // console.log(cardsOnBoard, 'cardsonboard')
+    const playerOneCardIdx = cardsOnBoard.length - 2;
+    const playerTwoCardIdx = cardsOnBoard.length - 1;
     if (
-      cardsOnBoard[cardsOnBoard.length - 1].value >
-      cardsOnBoard[cardsOnBoard.length - 2].value
+      cardsOnBoard[playerTwoCardIdx].value >
+      cardsOnBoard[playerOneCardIdx].value
     ) {
       this.gameStatus = "nowar";
       this.playerTwo.faceUpDeck.addToDeck(cardsOnBoard);
-      this.board.clearBoard();
-      return this.playerTwo;
+      this.board.cardsOnBoard = [];
+      return;
     } else if (
-      cardsOnBoard[cardsOnBoard.length - 1].value <
-      cardsOnBoard[cardsOnBoard.length - 2].value
+      cardsOnBoard[playerTwoCardIdx].value <
+      cardsOnBoard[playerOneCardIdx].value
     ) {
       this.gameStatus = "nowar";
       this.playerOne.faceUpDeck.addToDeck(cardsOnBoard);
-      this.board.clearBoard();
-      return this.playerOne;
+      this.board.cardsOnBoard = [];
+      return;
     } else {
       this.gameStatus = "war";
       return;

@@ -31,22 +31,26 @@ export class Deck {
 
     return deck;
   }
-  removeOneFromDeck(): Array<IDeck> {
-    const copyOfCards = [...this.cards];
-    const removedCard = copyOfCards.pop();
-    this.cards = copyOfCards;
-    return [removedCard];
-  }
+  // removeOneFromDeck(): Array<IDeck> {
+  // 	if (this.cards.length === 0){
+  // 		return []
+  // 	}
+  //   const copyOfCards = [...this.cards];
+  //   const removedCard = copyOfCards.pop();
+  //   this.cards = copyOfCards;
+  //   return [removedCard];
+  // }
 
-  removeThreeFromDeck(): Array<IDeck> {
-    const copyOfCards = [...this.cards];
-    const playedCards = [];
-    playedCards.push(copyOfCards.pop());
-    playedCards.push(copyOfCards.pop());
-    playedCards.push(copyOfCards.pop());
-    this.cards = copyOfCards;
-    return playedCards;
-  }
+  // removeThreeFromDeck(): Array<IDeck> {
+  //   const copyOfCards = [...this.cards];
+  //   const playedCards = [];
+  // 	for(let i = 0; )
+  //   playedCards.push(copyOfCards.pop());
+  //   playedCards.push(copyOfCards.pop());
+  //   playedCards.push(copyOfCards.pop());
+  //   this.cards = copyOfCards;
+  //   return playedCards;
+  // }
   addToDeck(cardsToAdd: Array<IDeck>): void {
     const copyOfCards = [...this.cards];
     this.cards = [...copyOfCards, ...cardsToAdd];

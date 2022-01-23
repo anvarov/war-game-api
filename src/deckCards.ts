@@ -74,4 +74,4 @@ const shuffleDeck = (cards: Array<IDeck>): Array<IDeck> => {
 const shuffledDeck = shuffleDeck(DECK_CARDS);
 const firstHalfDeck = shuffledDeck.splice(0, 26);
 const secondHalfDeck = shuffledDeck;
-export { firstHalfDeck, secondHalfDeck, IDeck };
+export { firstHalfDeck, secondHalfDeck, IDeck, shuffleDeck };
