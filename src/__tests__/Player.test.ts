@@ -1,6 +1,5 @@
 import { Player } from "../Player";
 import { Deck, IDeck } from "../Deck";
-import { IHistory } from "../Game";
 
 const cards = [
   { card: "3S", value: 1 },
@@ -15,7 +14,6 @@ const notEnoughCards = [
   { card: "3D", value: 1 },
 ];
 
-const history: IHistory[] = [];
 const playerName = "test";
 const initPlayer = (cards: IDeck[], faceUpCards: IDeck[]) => {
   return new Player(playerName, new Deck(faceUpCards), new Deck(cards));
@@ -33,7 +31,7 @@ describe("player", () => {
   it("should draw one card from player faceDownDeck", () => {
     expect.hasAssertions();
     const player = initPlayer(cards, []);
-    const drawedCard = player.drawCards(1, history);
+    const drawedCard = player.drawCards(1);
     expect(player.faceDownDeck.cards).toStrictEqual(cards.slice(0, -1));
     expect(drawedCard).toStrictEqual(cards.slice(-1));
   });
@@ -41,7 +39,7 @@ describe("player", () => {
   it("should draw three cards from player faceDownDeck", () => {
     expect.hasAssertions();
     const player = initPlayer(cards, []);
-    const drawedCards = player.drawCards(3, history);
+    const drawedCards = player.drawCards(3);
     expect(player.faceDownDeck.cards).toStrictEqual(cards.slice(0, -3));
     expect(drawedCards).toStrictEqual(cards.slice(-3));
   });
@@ -50,7 +48,7 @@ describe("player", () => {
 	when there is not enough cards in faceDown deck for a move`, () => {
     expect.hasAssertions();
     const player = initPlayer([], cards);
-    const drawedCards = player.drawCards(3, history);
+    const drawedCards = player.drawCards(3);
     expect(drawedCards).toHaveLength(3);
     expect(player.faceUpDeck.cards).toHaveLength(0);
     expect(player.faceDownDeck.cards).toHaveLength(cards.length - 3);
@@ -59,7 +57,7 @@ describe("player", () => {
   it("should return an empty array if there is not enough cards", () => {
     expect.hasAssertions();
     const player = initPlayer([], notEnoughCards);
-    const drawedCards = player.drawCards(3, history);
+    const drawedCards = player.drawCards(3);
     expect(drawedCards).toHaveLength(0);
   });
 });

@@ -1,5 +1,4 @@
 import { Deck, IDeck } from "./Deck";
-import { IHistory } from "./Game";
 
 export class Player {
   private _faceUpDeck: Deck;
@@ -30,7 +29,7 @@ export class Player {
     this.name = name;
   }
 
-  public drawCards(numberOfCards: number, history: IHistory[]): IDeck[] {
+  public drawCards(numberOfCards: number): IDeck[] {
     if (this.faceDownDeck.cards.length < numberOfCards) {
       const copyOfFaceUpDeck = [...this.faceUpDeck.cards];
       const shuffledFaceUpDeck = Deck.shuffleDeck(copyOfFaceUpDeck);
@@ -42,7 +41,6 @@ export class Player {
     }
     const drawedCards = this.faceDownDeck.cards.slice(-numberOfCards);
     if (drawedCards.length < numberOfCards) return [];
-    history.push({ cards: drawedCards, player: this });
     this.faceDownDeck.cards = this.faceDownDeck.cards.slice(0, -numberOfCards);
     return drawedCards;
   }

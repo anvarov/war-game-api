@@ -4,6 +4,7 @@ module.exports = {
   plugins: ["@typescript-eslint", "jest", "import"],
   rules: {
     "node/no-unsupported-features/es-syntax": "off",
+    "jest/require-hook": "off",
   },
   parserOptions: {
     ecmaVersion: "12",
@@ -17,9 +18,6 @@ module.exports = {
     "plugin:import/typescript",
     "prettier",
   ],
-  // env: {
-  //   "jest/globals": true,
-  // },
   settings: {
     jest: {
       version: 27,

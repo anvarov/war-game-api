@@ -18,7 +18,6 @@ describe("game", () => {
     expect.hasAssertions();
     const game = initGame();
     expect(game.gameStatus).toBe("nowar");
-    expect(game.history).toHaveLength(0);
     expect(game.playerOne.name).toBe(playerOneName);
     expect(game.playerTwo.name).toBe(playerTwoName);
   });
