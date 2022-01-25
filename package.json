@@ -33,11 +33,12 @@
   },
   "scripts": {
     "lint": "yarn run eslint ./src --ext .ts",
-    "serve": "yarn ./app.js",
     "format": "yarn prettier --write .",
     "postinstall": "husky install",
     "compile": "yarn tsc -p tsconfig.json",
-    "test": "jest"
+    "test": "jest",
+    "serve": "yarn compile && yarn node dist/server.js"
+
   },
   "lint-staged": {
     "*.{ts}": "yarn eslint --cache --fix",
