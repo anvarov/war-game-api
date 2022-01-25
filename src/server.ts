@@ -26,7 +26,7 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 } as MongoClientOptions);
 const app = express.default();
-const port = process.env.PORT ? process.env.PORT : 3001;
+const port = process.env.PORT ? process.env.PORT : 3000;
 
 app.use(Helmet());
 app.get(
