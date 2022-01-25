@@ -16,8 +16,8 @@ Docker
 
 APIs available at `localhost:3000`
 Endpoints:
- - /simulateGame - simulates a game and returns a winner
- - /getPlayers - get players stats
+ - `/simulateGame` - simulates a game and returns a winner
+ - `/getPlayers` - get players stats
 
 
 
